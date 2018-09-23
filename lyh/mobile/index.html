@@ -64,11 +64,28 @@
     $(".tab-item").on("click",function() {
         var target = $(this).data("target");
         $("#page").html(tpl(target, {}));
-        $(".swiper-container").swiper({
-            autoplay: 2000,
-            el: '.swiper-pagination',
-            dynamicBullets: true
-        });
+        if( target == "home" ){
+            $(".swiper-container").swiper({
+                autoplay: 2000,
+                el: '.swiper-pagination',
+                dynamicBullets: true
+            });
+        }else if( target == "music" ){
+            music_init();
+        }else if( target == "video" ){
+            videojs("video-yh1").ready(function(){
+                var myPlayer = this;
+            });
+            videojs("video-yh2").ready(function(){
+                var myPlayer = this;
+            });
+            videojs("video-yh3").ready(function(){
+                var myPlayer = this;
+            });
+        }else if( target == "owner" ){
+
+        }
+
     });
 
 
