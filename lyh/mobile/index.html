@@ -12,55 +12,110 @@
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
     <link rel="stylesheet" href="./public/css/index.css">
+
+    <script src="./public/vue/vue.min.js"></script>
+    <script src="./public/vue/vue-router.min.js"></script>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+
+    <script src="public/js/video.min.js"></script>
+
+    <script src="./public/js/jstpl.js"></script>
+    <script src="./public/js/music.js"></script>
+    <style>
+        .tab-item.active {
+            color:  #ed8e07 !important;
+        }
+        .tab-item.inactive {
+        }
+    </style>
 </head>
-
 <body>
-<div class="page-group">
-    <div class="page">
-        <nav class="bar bar-tab">
-            <a class="tab-item active" href="index.html">
-                <span class="icon icon-home"></span>
-                <span class="tab-label">首页</span>
-            </a>
-            <a class="tab-item" href="music.html">
-                <span class="icon icon-star"></span>
-                <span class="tab-label">音乐</span>
-            </a>
-            <a class="tab-item" href="video.html">
-                <span class="icon icon-share"></span>
-                <span class="tab-label">视频</span>
-            </a>
-            <a class="tab-item" href="owner.html">
-                <span class="icon icon-me"></span>
-                <span class="tab-label">艺环</span>
-            </a>
-        </nav>
-        <div class="content">
-            <!-- Slider -->
-            <div class="swiper-container" data-space-between='10'>
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img class="bar-img" src="./public/image/yh3.jpeg" alt=""></div>
-                    <div class="swiper-slide"><img class="bar-img" src="./public/image/yh2.jpeg" alt=""></div>
-                    <div class="swiper-slide"><img class="bar-img" src="./public/image/yh1.jpeg" alt=""></div>
-                </div>
-                <div class="swiper-pagination" style="position: relative;top: -30px;"></div>
-            </div>
-            <div class="row">
-                <div class="col-33">33%</div>
-                <div class="col-33">33%</div>
-                <div class="col-33">33%</div>
-            </div>
-
-        </div>
-    </div>
+<div id="app">
+    <nav class="bar bar-tab">
+        <router-link to="/home" class="tab-item">
+            <span class="icon icon-home"></span>
+            <span class="tab-label">首页</span>
+        </router-link>
+        <router-link to="/music" class="tab-item">
+            <span class="icon icon-star"></span>
+            <span class="tab-label">音乐</span>
+        </router-link>
+        <router-link to="/video" class="tab-item">
+            <span class="icon icon-share"></span>
+            <span class="tab-label">视频</span>
+        </router-link>
+        <router-link to="/owner" class="tab-item">
+            <span class="icon icon-me"></span>
+            <span class="tab-label">艺环</span>
+        </router-link>
+    </nav>
+    <router-view transition="fade" transition-mode="out-in" keep-alive></router-view>
 </div>
 
-<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='./public/js/index.js' charset='utf-8'></script>
-<script type='text/javascript' src='./public/js/music.js' charset='utf-8'></script>
+<script>
+    const Home = {
+        template: "<div id='home-content'></div>",
+        mounted(){
+            $("#home-content").html(tpl("home", {}));
+            $(".swiper-container").swiper({
+                autoplay:2000,
+                el: '.swiper-pagination',
+                dynamicBullets: true
+            });
+        }}
+    const Music = {
+        template: "<div id='music-content'></div>",
+        mounted(){
+            $("#music-content").html(tpl("music", {}));
+            window.music_init();
+        }
+    }
 
+    const Video = {
+        template: "<div id='video-content'></div>",
+        mounted(){
+            $("#video-content").html(tpl("video", {}));
+
+            videojs("video-yh1").ready(function(){
+                var myPlayer = this;
+            });
+            videojs("video-yh2").ready(function(){
+                var myPlayer = this;
+            });
+            videojs("video-yh3").ready(function(){
+                var myPlayer = this;
+            });
+        }
+    }
+
+    const Owner = {
+        template: "<div id='owner-content'></div>",
+        mounted(){
+            $("#owner-content").html(tpl("owner", {}));
+        }
+    }
+
+
+    const routes = [
+        { path: '/home', component: Home },
+        { path: '/music', component: Music },
+        { path: '/video', component: Video },
+        { path: '/owner', component: Owner }
+    ]
+
+    const router = new VueRouter({
+        routes // （缩写）相当于 routes: routes
+    })
+
+    const app = new Vue({
+                router
+            }).$mount('#app')
+
+</script>
 </body>
 </html>
