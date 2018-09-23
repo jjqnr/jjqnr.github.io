@@ -11,14 +11,164 @@
 
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./public/font-awesome/css/font-awesome.css">
 </head>
 <style>
-    .bar-img{
+    body{
+        background-color: #333;
+        margin: 0;
+    }
+    /*滑动时间的样式*/
+    .slider-bar{
+        height:4px;
         width: 100%;
-        height: auto;
+        background-color: #6d6d6d;
+        border-radius: 2px;
+    }
+    .slider-progress{
+        position: relative;
+        height: 100%;
+        width: 0;
+        background-color: #ff7471;
+        border-radius: 2px;
+    }
+    .slider-dot-control{
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        left: 100%;
+        background-color: #ff7471;
+        border: 6px solid #fff;
+        top: 50%;
+        margin-top: -9px;
+        margin-left: -9px;
+    }
+    /*滑动时间的样式*/
+    /*播放时间的样式*/
+    .played-progress,.all-progress{
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        padding: 0 10px;
+        font-size: 14px;
+    }
+    .content-box{
+        display: flex;
+        height: 20px;
+        color: #eee;
+        margin-top: 20px;
+    }
+    .center-box{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .left-box{
+        width: 100px;
+        height: 100%;
+        text-align: center;
+        font-size: 14px;
+    }
+    .right-box{
+        width: 100px;
+        height: 100%;
+        text-align: center;
+        font-size: 14px;
+    }
+    /*播放时间的样式*/
+    /*播放控制按钮的样式*/
+    .control-box{
+        color: #ccc;
+        display: flex;
+        align-items: center;
+        height: 40px;
+        -webkit-justify-content: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .control-box span{
+        display: flex;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        font-size: 30px;
+    }
+    .control-box span.play_bt{
+        font-size: 35px;
+    }
+    /*播放控制按钮的样式*/
+    /*歌曲信息的样式*/
+    .song-info-txt{
+        text-align: center;
+        font-size: 14px;
+        color: #ccc;
+        line-height: 40px;
+    }
+    /*歌曲信息的样式*/
+    /*歌曲封面的样式*/
+    .poster-box img{
+        display: block;
+        width: 240px;
+        height: 240px;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+    /*歌曲封面的样式*/
+    /**************播放动画***************/
+    @-webkit-keyframes rotateRound {
+        0% {-webkit-transform: rotate(0deg);}
+        100% {-webkit-transform: rotate(360deg);}
+    }
+    @-moz-keyframes rotateRound {
+        0% {-moz-transform: rotate(0deg);}
+        100% {-moz-transform: rotate(360deg);}
+    }
+    @keyframes rotateRound {
+        0% {transform: rotate(0deg);}
+        100% {transform: rotate(360deg);}
+    }
+    .playing{
+        -moz-animation: rotateRound 20s linear infinite;
+        -webkit-animation: rotateRound 20s linear infinite;
+        animation: rotateRound 20s linear infinite;
+
+    }
+    /****************歌曲列表**********************/
+    .music-list-body table{
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        color: #ccc;
+        font-size: 12px;
+    }
+    .music-list-body table td,.music-list-body table th{
+        text-align: left;
+        line-height: 28px;
+        padding: 0 10px;
+        cursor: pointer;
+    }
+    .music-list-body table tbody tr:hover td{
+        background-color: #1b1b1b;
+    }
+    .music-list-title{
+        height: 32px;
+        line-height: 32px;
+        padding: 0 10px;
+        font-size: 14px;
+        color: #ccc;
+        font-weight: bold;
+        border-bottom: 1px solid #1b1b1b;
+    }
+    .music-list-box{
+        height: 330px;
+        overflow-y: auto;
     }
 </style>
+
 <body>
 <div class="page-group">
     <div class="page">
@@ -42,76 +192,44 @@
         </nav>
         <div class="content">
             <div class="content">
-                <div class="content-block-title">我的歌单</div>
-                <div class="list-block media-list">
-                    <ul>
-                        <li>
-                            <a href="#" class="item-link item-content">
-                                <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
-                                <div class="item-inner">
-                                    <div class="item-title-row">
-                                        <div class="item-title">标题</div>
-                                        <div class="item-after">$15</div>
-                                    </div>
-                                    <div class="item-subtitle">标题</div>
-                                    <div class="item-text">此处是文本内容...</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="item-link item-content">
-                                <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
-                                <div class="item-inner">
-                                    <div class="item-title-row">
-                                        <div class="item-title">标题</div>
-                                        <div class="item-after">$15</div>
-                                    </div>
-                                    <div class="item-subtitle">标题</div>
-                                    <div class="item-text">此处是文本内容...</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="item-link item-content">
-                                <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
-                                <div class="item-inner">
-                                    <div class="item-title-row">
-                                        <div class="item-title">标题</div>
-                                        <div class="item-after">$15</div>
-                                    </div>
-                                    <div class="item-subtitle">标题</div>
-                                    <div class="item-text">此处是文本内容...</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="item-link item-content">
-                                <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
-                                <div class="item-inner">
-                                    <div class="item-title-row">
-                                        <div class="item-title">标题</div>
-                                        <div class="item-after">$15</div>
-                                    </div>
-                                    <div class="item-subtitle">标题</div>
-                                    <div class="item-text">此处是文本内容...</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="item-link item-content">
-                                <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
-                                <div class="item-inner">
-                                    <div class="item-title-row">
-                                        <div class="item-title">标题</div>
-                                        <div class="item-after">$15</div>
-                                    </div>
-                                    <div class="item-subtitle">标题</div>
-                                    <div class="item-text">此处是文本内容...</div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
+                <!--audio标签-->
+                <audio src="./public/music/meet.mp3"></audio>
+                <!--歌曲信息-->
+                <div class="song-info-box">
+                    <div class="song-info-txt"><span class="song-name">蓝</span>-<span class="song-author">艺环</span></div>
+                    <div class="poster-box"><img src="./public/video/yh2.jpeg" class="music-poster"></div>
                 </div>
+                <!--时间进度条-->
+                <div class="content-box">
+                    <div class="left-box played-progress">00：00</div>
+                    <div class="center-box"> <div class="slider-bar">
+                        <div class="slider-progress">
+                            <div class="slider-dot-control"></div>
+                        </div>
+                    </div></div>
+                    <div class="right-box all-progress">00：00</div>
+                </div>
+                <!--控制按钮-->
+                <div class="control-box">
+                    <span class="prev_bt fa fa-step-backward iconfont" title="上一首"></span>
+                    <span class="play_bt fa fa-play-circle" title="播放/暂停"></span>
+                    <span class="next_bt fa fa-step-forward iconfont" title="下一首"></span>
+                </div>
+                <!--歌曲列表-->
+                <div class="music-list-box">
+                    <div class="music-list-title">歌曲列表</div>
+                    <div class="music-list-body">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>歌名</th><th>歌手</th><th>时长</th>
+                            </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -121,13 +239,198 @@
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
 <script>
-    $(function() {
-        $(".swiper-container").swiper({
-            autoplay:2000,
-            el: '.swiper-pagination',
-            dynamicBullets: true
-        });
-    });
+    var songs=[
+            {title:"遇见",author:"蓝艺环",src:"./public/music/meet.mp3",image:"./public/video/yh2.jpeg",long:"5.0minute"},
+            {title:"遇见",author:"蓝艺环",src:"./public/music/demo.mp3",image:"./public/video/yh3.jpeg",long:"5.2minute"}];
+    var curIndex=0;
 </script>
+
+<script>
+    //预先设置获取需要使用的数据和参数
+    var lastX=0;
+    var power=false;
+    var silider=document.querySelector('.slider-bar');
+    var progress=document.querySelector('.slider-progress');
+    var dot=document.querySelector('.slider-dot-control');
+    var audio=document.querySelector('audio');
+    var playBtn=document.querySelector('.play_bt');
+    var poster=document.querySelector('.music-poster');
+    var songName=document.querySelector('.song-name');
+    var songAuthor=document.querySelector('.song-author');
+    var prevSong=document.querySelector('.prev_bt');
+    var nextSong=document.querySelector('.next_bt');
+    //        设置时间滑块事件
+    dot.addEventListener('touchstart',function (e) {
+        var touch=e.touches[0];
+        power=true;
+        lastX=touch.clientX;
+    })
+    document.addEventListener('touchmove',function (e) {
+        var touch=e.touches[0];
+        if(power){
+            var curX=touch.clientX;
+            var addW=curX-lastX;
+            var setW=progress.offsetWidth+addW;
+            var maxW=silider.offsetWidth;
+            if(setW>=0&&setW<=maxW){
+                lastX=curX;
+                var percen=setW/maxW;
+            }else if(setW<0){
+                percen=0;
+            }else {
+                percen=1;
+            }
+            progress.style.width=percen*100+"%";
+        }
+    })
+    document.addEventListener('touchend',function (e) {
+        if(power){
+            var setW=progress.offsetWidth;
+            var maxW=silider.offsetWidth;
+            if(setW>=0&&setW<=maxW){
+                var percen=setW/maxW;
+            }else if(setW<0){
+                percen=0;
+            }else {
+                percen=1;
+            }
+            progress.style.width=percen*100+"%";
+            upDateProgress(percen);
+        }
+        power=false;
+    })
+    silider.addEventListener('click',function (e) {
+        var setW=e.clientX-this.offsetLeft;
+        var maxW=silider.offsetWidth;
+        if(setW>=0&&setW<=maxW){
+            var percen=setW/maxW;
+            progress.style.width=percen*100+"%";
+            upDateProgress(percen)
+        }
+    })
+    //        上一曲
+    prevSong.onclick=function () {
+        curIndex--;
+        if(curIndex<0){
+            curIndex=songs.length-1;
+        }
+        changeSong(curIndex);
+        setTimeout(function () {
+            audio.play();
+        },200)
+    }
+    //        下一曲
+    nextSong.onclick=function () {
+        curIndex++;
+        if(curIndex>=songs.length){
+            curIndex=0;
+        }
+        changeSong(curIndex);
+        setTimeout(function () {
+            audio.play();
+        },200)
+    }
+    //        更改进度条
+    function upDateProgress(percence) {
+        audio.currentTime=percence*audio.duration;
+    }
+    //        切换歌曲
+    function changeSong(index) {
+        if((0<=index)&&(index<songs.length)){
+            var curSong=songs[index];
+            audio.src=curSong.src;
+            poster.src=curSong.image;
+            songName.innerHTML=curSong.title;
+            songAuthor.innerHTML=curSong.author;
+        }
+    }
+    //        监听播放事件
+    audio.onplay=function () {
+        playBtn.className='play_bt fa fa-play-circle';
+        poster.className='playing music-poster';
+    }
+    //        监听暂停事件
+    audio.onpause=function () {
+        playBtn.className='play_bt fa fa-stop-circle';
+        poster.className='music-poster';
+    }
+    //        播放或暂停
+    playBtn.onclick=function () {
+        if(audio.paused){
+            audio.play()
+        }else {
+            audio.pause()
+        }
+    }
+    //        监听可以播放事件
+    audio.oncanplay=function () {
+        document.querySelector('.all-progress').innerHTML=duration(parseInt(audio.duration))
+        if(!power){
+            var prence=audio.currentTime/audio.duration;
+            progress.style.width=prence*100+"%";
+        }
+        if(audio.paused){
+            playBtn.className='play_bt fa fa-play-circle';
+            poster.className='music-poster';
+        }else {
+            playBtn.className='play_bt fa fa-stop-circle';
+            poster.className='playing music-poster';
+        }
+    }
+    //        监听播放时间变化事件
+    audio.ontimeupdate=function () {
+        document.querySelector('.played-progress').innerHTML=duration(parseInt(audio.currentTime))
+        if(!power){
+            var prence=audio.currentTime/audio.duration;
+            progress.style.width=prence*100+"%";
+        }
+    }
+    //        监听播放结束事件
+    audio.onended=function () {
+        curIndex++;
+        if(curIndex>=songs.length){
+            curIndex=0;
+        }
+        changeSong(curIndex);
+        setTimeout(function () {
+            audio.play();
+        },200)
+    }
+    //        格式化时间格式
+    var duration=function (time) {
+        var fen=parseInt(time/60);
+        var miao=time%60;
+        if(fen<=9){
+            fen="0"+fen;
+        }
+        if(miao<=9){
+            miao="0"+miao;
+        }
+        return fen+'：'+miao;
+    }
+    changeSong(0);
+    setList(songs);
+    //        初始化显示歌曲列表
+    function setList(songs) {
+        var list=document.querySelector('table tbody');
+        songs.forEach(function (song,idx){
+            var html='<tr onclick="playSong('+idx+')"><td>'+song.title+'</td><td>'+song.author+'</td><td>'+ song.long + '</td></tr>';
+            list.innerHTML+=html;
+        })
+    }
+    //        播放指定位置的歌曲
+    function playSong(i) {
+        if(curIndex!=i){
+            curIndex=i;
+            changeSong(curIndex);
+            setTimeout(function () {
+                audio.play();
+            },200)
+        }else {
+            audio.play();
+        }
+    }
+</script>
+
 </body>
 </html>
