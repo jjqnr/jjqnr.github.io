@@ -8,7 +8,7 @@
             </div>
             <div class="swiper-pagination" style="position: relative;top: -30px;"></div>
         </div>
-        <div class="row" style="text-align:center">
+        <div class="row" style="text-align:center;color:#75b4ca">
             <h3>你待会跟你妈说</h3>
             <h3>晚上不回家要去同学家学吉他</h3>
 
