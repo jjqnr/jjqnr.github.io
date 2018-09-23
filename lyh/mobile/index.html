@@ -48,7 +48,7 @@
                     <div class="swiper-slide"><img class="bar-img" src="./public/image/yh2.jpeg" alt=""></div>
                     <div class="swiper-slide"><img class="bar-img" src="./public/image/yh3.jpeg" alt=""></div>
                 </div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-pagination" style="position: relative;top: -30px;"></div>
             </div>
             <div class="row">
                 <div class="col-33">33%</div>
@@ -66,10 +66,7 @@
 <script>
     $(function() {
         $(".swiper-container").swiper({
-            autoplay: {
-                delay: 25000,
-                disableOnInteraction: false
-            },
+            autoplay:2000,
             el: '.swiper-pagination',
             dynamicBullets: true
         });
