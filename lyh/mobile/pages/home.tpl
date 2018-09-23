@@ -13,7 +13,7 @@
             <h3>晚上不回家要去同学家学吉他</h3>
 
             <br>
-            <img style="width:60%" src="./public/image/gaoxiao.jpg"  alt="">
+            <img style="width:60%" src="./public/image/gaoxiao.jpeg"  alt="">
         </div>
 
     </div>
