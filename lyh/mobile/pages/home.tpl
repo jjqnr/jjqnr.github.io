@@ -8,10 +8,12 @@
             </div>
             <div class="swiper-pagination" style="position: relative;top: -30px;"></div>
         </div>
-        <div class="row">
-            <div class="col-33">33%</div>
-            <div class="col-33">33%</div>
-            <div class="col-33">33%</div>
+        <div class="row" style="text-align:center">
+            <h3>你待会跟你妈说</h3>
+            <h3>晚上不回家要去同学家学吉他</h3>
+
+            <br>
+            <img style="width:60%" src="./public/image/gaoxiao.jpg"  alt="">
         </div>
 
     </div>
