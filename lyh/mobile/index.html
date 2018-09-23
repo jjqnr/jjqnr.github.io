@@ -63,6 +63,8 @@
     $("#page").html(tpl("home", {}));
 
     $(".tab-item").on("click",function() {
+        $(".tab-item").removeClass("active");
+        $(this).addClass("active");
         var target = $(this).data("target");
         $("#page").html(tpl(target, {}));
         if( target == "home" ){
