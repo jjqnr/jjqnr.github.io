@@ -72,7 +72,12 @@
 
 <script>
     $("#page").html(tpl("home", {}));
-
+    $(".swiper-container").swiper({
+        autoplay: 2000,
+        el: '.swiper-pagination',
+        dynamicBullets: true
+    });
+    
     $(".tab-item").on("click",function() {
         $(".tab-item").removeClass("active");
         $(this).addClass("active");
