@@ -1,6 +1,6 @@
 <div class="content">
             <div class="card">
-                <div class="card-header">有趣的音阶<span class="em em-face_with_raised_eyebrow"></span></div>
+                <div class="card-header">有趣的音阶<span class="em em-drooling_face"></span></div>
                 <div class="card-content">
                     <div class="card-content-inner">
                         <video id="video-yh1" poster="./public/video/yh1.jpeg" class="video-js" controls preload="auto" style="width: 100%;height: 200px">
