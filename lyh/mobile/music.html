@@ -242,9 +242,7 @@
             {title:"遇见",author:"蓝艺环",src:"./public/music/meet.mp3",image:"./public/video/yh2.jpeg",long:"5.0minute"},
             {title:"遇见",author:"蓝艺环",src:"./public/music/demo.mp3",image:"./public/video/yh3.jpeg",long:"5.2minute"}];
     var curIndex=0;
-</script>
 
-<script>
     //预先设置获取需要使用的数据和参数
     var lastX=0;
     var power=false;
@@ -422,9 +420,6 @@
         if(curIndex!=i){
             curIndex=i;
             changeSong(curIndex);
-            setTimeout(function () {
-                audio.play();
-            },200)
         }else {
             audio.play();
         }
