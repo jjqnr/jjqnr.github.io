@@ -1,10 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>小鱼干音乐小屋</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<style>
+    .bar-img{
+        width: 100%;
+        height: auto;
+    }
+</style>
+<body>
+<div class="page-group">
+    <div class="page">
+        <nav class="bar bar-tab">
+            <a class="tab-item active" href="index.html">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">首页</span>
+            </a>
+            <a class="tab-item" href="music.html">
+                <span class="icon icon-star"></span>
+                <span class="tab-label">音乐</span>
+            </a>
+            <a class="tab-item" href="video.html">
+                <span class="icon icon-share"></span>
+                <span class="tab-label">视频</span>
+            </a>
+            <a class="tab-item" href="owner.html">
+                <span class="icon icon-me"></span>
+                <span class="tab-label">艺环</span>
+            </a>
+        </nav>
+        <div class="content">
+            <div class="card">
+                <div class="card-header">滚动方式</div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <h3>滚动具有三种模式：</h3>
+                        <ul>
+                            <li>1. auto模式: scroller.js 根据系统版本号来决定什么时候使用js的滚动（默认）</li>
+                            <li>2. js模式: 总是使用js滚动（即IScroll）</li>
+                            <li>3. native模式： 总是使用原生滚动条</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">滚动方式</div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <h3>滚动具有三种模式：</h3>
+                        <ul>
+                            <li>1. auto模式: scroller.js 根据系统版本号来决定什么时候使用js的滚动（默认）</li>
+                            <li>2. js模式: 使用js滚动</li>
+                            <li>3. native模式： 总是使用原生滚动条</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">滚动方式</div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <h3>滚动具有三种模式：</h3>
+                        <ul>
+                            <li>1. auto模式: scroller.js 根据系统版本号来决定什么时候使用js的滚动（默认）</li>
+                            <li>2. js模式: 使用js滚动</li>
+                            <li>3. native模式： 总是使用原生滚动条</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script>
+    $(function() {
+        $(".swiper-container").swiper({
+            autoplay:2000,
+            el: '.swiper-pagination',
+            dynamicBullets: true
+        });
+    });
+</script>
 </body>
 </html>
