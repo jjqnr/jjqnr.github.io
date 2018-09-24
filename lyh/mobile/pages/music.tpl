@@ -4,7 +4,7 @@
             <!--歌曲信息-->
             <div class="song-info-box">
                 <div class="song-info-txt"><span class="song-name">蓝</span>-<span class="song-author">艺环</span></div>
-                <div class="poster-box"><img src="./public/video/yh2.jpeg" class="music-poster"></div>
+                <div class="poster-box"><img src="./public/music/yh1.jpeg" class="music-poster"></div>
             </div>
             <!--时间进度条-->
             <div class="content-box">

@@ -4,8 +4,8 @@
 
 window.music_init = function(){
     var songs=[
-        {title:"遇见",author:"蓝艺环",src:"./public/music/meet.mp3",image:"./public/video/yh2.jpeg",long:"5.0minute"},
-        {title:"遇见",author:"蓝艺环",src:"./public/music/demo.mp3",image:"./public/video/yh3.jpeg",long:"5.2minute"}];
+        {title:"遇见",author:"蓝艺环",src:"./public/music/meet.mp3",image:"./public/music/yh1.jpeg",long:"5.0minute"},
+        {title:"demo",author:"蓝艺环",src:"./public/music/demo.mp3",image:"./public/music/yh2.jpeg",long:"5.2minute"}];
     var curIndex=0;
 
 //预先设置获取需要使用的数据和参数
