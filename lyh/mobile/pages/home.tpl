@@ -11,7 +11,7 @@
         <div class="row" style="text-align:center;color:#75b4ca">
             <h3>你待会跟你妈说</h3>
             <h3>晚上不回家要去同学家学吉他</h3>
-            <h3>一起过中秋</h3>
+            <h3>和林周治一起过中秋</h3>
             <br>
             <img style="width:60%" src="./public/image/gaoxiao.jpeg"  alt="">
         </div>
