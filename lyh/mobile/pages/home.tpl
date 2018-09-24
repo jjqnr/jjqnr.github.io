@@ -14,6 +14,9 @@
             <h3>和林周治一起过中秋</h3>
             <br>
             <img style="width:60%" src="./public/image/gaoxiao.jpeg"  alt="">
+            <br>
+            <br>
+            <br>
         </div>
 
     </div>
