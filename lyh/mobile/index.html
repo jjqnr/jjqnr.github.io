@@ -91,7 +91,8 @@
             });
         }else if( target == "music" ){
             music_init();
-        }else if( target == "video" ){
+        }else if( target == "video"){
+            window.video_init = true;
             videojs("video-yh1").ready(function(){
                 var myPlayer = this;
             });
