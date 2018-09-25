@@ -22,7 +22,7 @@ String.prototype.format = function(args) {
 };
 
 function tpl(template, data){
-    var url = "./pages/" + template + ".tpl";
+    var url = "./pages/" + template + ".html";
     var tpl_con = "";
     $.ajax({
         url: url,
